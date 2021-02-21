@@ -1,0 +1,143 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 84a1d227cee0f725500c7cb02efe6223cd8f05b7713f8ae8a45ef13cbe825ee9
+
+name:           hw4
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/grifguitar/hw4#readme>
+homepage:       https://github.com/grifguitar/hw4#readme
+bug-reports:    https://github.com/grifguitar/hw4/issues
+author:         Khlytin Grigoriy
+maintainer:     xlootin@gmail.com
+copyright:      2021 Khlytin Grigoriy
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/grifguitar/hw4
+
+library
+  exposed-modules:
+      Block1.EffectiveGeometry
+      Block1.NaiveGeometry
+      Block8.Comonad19
+      Block8.GameOfLife
+      Block8.Grid
+      Block8.ListZipper
+      Lib
+  other-modules:
+      Paths_hw4
+  hs-source-dirs:
+      src
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , comonad
+    , containers
+    , deepseq
+    , directory
+    , filepath
+    , microlens
+    , mtl
+    , parallel
+    , random
+    , stm
+    , vector
+  default-language: Haskell2010
+
+executable hw4-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hw4
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , comonad
+    , containers
+    , deepseq
+    , directory
+    , filepath
+    , hw4
+    , microlens
+    , mtl
+    , parallel
+    , random
+    , stm
+    , vector
+  default-language: Haskell2010
+
+test-suite hw4-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Block1.EffectiveGeomSpec
+      Block1.NaiveGeomSpec
+      Paths_hw4
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , comonad
+    , containers
+    , deepseq
+    , directory
+    , filepath
+    , hedgehog
+    , hspec
+    , hspec-hedgehog
+    , hw4
+    , microlens
+    , mtl
+    , parallel
+    , random
+    , stm
+    , tasty
+    , tasty-hedgehog
+    , tasty-hspec
+    , vector
+  default-language: Haskell2010
+
+benchmark hw4-benchmark
+  type: exitcode-stdio-1.0
+  main-is: Crit.hs
+  other-modules:
+      Block1.Task1Crit
+      Paths_hw4
+  hs-source-dirs:
+      bench
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N4 -eventlog
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , comonad
+    , containers
+    , criterion
+    , deepseq
+    , directory
+    , filepath
+    , hw4
+    , microlens
+    , mtl
+    , parallel
+    , random
+    , stm
+    , vector
+  default-language: Haskell2010

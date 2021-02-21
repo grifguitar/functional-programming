@@ -1,0 +1,80 @@
+name:                hw4
+version:             0.1.0.0
+github:              "grifguitar/hw4"
+license:             BSD3
+author:              "Khlytin Grigoriy"
+maintainer:          "xlootin@gmail.com"
+copyright:           "2021 Khlytin Grigoriy"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/grifguitar/hw4#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl
+- directory
+- containers
+- bytestring
+- filepath
+- deepseq
+- parallel
+- stm
+- vector
+- microlens
+- comonad
+- random
+- ansi-terminal
+
+library:
+  source-dirs: src
+
+executables:
+  hw4-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hw4
+
+tests:
+  hw4-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hw4
+    - tasty
+    - tasty-hspec
+    - tasty-hedgehog
+    - hspec
+    - hedgehog
+    - hspec-hedgehog
+
+benchmarks:
+  hw4-benchmark:
+    main:                Crit.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N4
+    - -eventlog
+    dependencies:
+    - hw4
+    - criterion
